@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitura de caminhão</title>
+</head>
+<body>
+
+    <h1>Leitura do caminhão</h1>
+
+    <h2>Insira o peso do seu caminhão em Toneladas</h2>
+    <input type="number" id="pesoCaminhao" placeholder="Peso do caminhão">
+
+    <h2>Insira o código de estado</h2>
+    <input type="number" id="codigoEstado" placeholder="Insira o código de estado ">
+    <br><br>
+
+    <button type="button" onclick="leituraCaminhao()">Insira as informações principais</button>
+
+    <p id="aviso"></p>
+
+    <p id="aviso2"></p>
+
+    <p id="aviso3"></p>
+
+    <p id="texto"></p>
+
+    <script>
+        function leituraCaminhao(){
+
+            var aviso1 = document.getElementById('aviso'); //ADICIONANDO ATRIBUTO DO P EM VARIAVEL
+            var aviso2 = document.getElementById('aviso2'); //ADICIONANDO ATRIBUTO DO P EM VARIAVEL
+            var aviso3 = document.getElementById('aviso3'); //ADICIONANDO ATRIBUTO DO P EM VARIAVEl
+            var texto = document.getElementById('texto'); //ADICIONANDO ATRIBUTO DO P EM VARIAVEl
+//=========================================================================
+
+            var pesoEmToneladas = parseInt(document.getElementById('pesoCaminhao').value); //COLETANDO O VALOR DO INPUUT DO PESO DO CAMINHAO E ADICIONANDO EM VARIAVEL
+
+            var codigoEstado = parseInt(document.getElementById('codigoEstado').value); ////COLETANDO O VALOR DO INPUUT DO CODIGO DO ESTADO E ADICIONANDO EM VARIAVEL
+//========================================================================= 
+//TRANSFORMANDO TONELADAS EM GRAMAS
+            var pesoEmQuilos = pesoEmToneladas * 1000;  
+
+// CARGA E PRECO DA CARGA EM RELACAO AO QUILO
+            if ((pesoEmToneladas >=10) && (pesoEmToneladas <=20)) {
+                var precoPorQuilo = pesoEmQuilos * 100;
+            
+            } else
+            if ((pesoEmToneladas >=21) && (pesoEmToneladas <=30)){
+                var precoPorQuilo = pesoEmQuilos * 250;
+                    
+            } else
+            if ((pesoEmToneladas >=31) && (pesoEmToneladas <=40)){
+                var precoPorQuilo = pesoEmQuilos * 340;
+            } 
+            aviso1.innerHTML = "O peso transportado pelo caminhão convertido em quilos é " +  precoPorQuilo + "kg.";
+        
+            
+//CODIGO DE ESTADO
+            if (codigoEstado == 1){
+               var imposto  = 35 / 100;
+            } else 
+            if (codigoEstado == 2) {
+               var imposto = 25/100;
+            } else 
+            if (codigoEstado == 3) {
+                var imposto = 15/ 100;
+            } else
+            if (codigoEstado == 4) {
+                var imposto = 5/100;
+            } else 
+            if (codigoEstado == 5) {
+                var imposto = 1;
+            } else {
+                aviso3.innerHTML = "Digite um código válido entre 1 e 5";
+            }
+            aviso2.innerHTML = "O valor da porcentagem do imposto é de " + imposto;
+
+            var teste = (imposto * precoPorQuilo) + precoPorQuilo;
+            texto.innerHTML = "O valor total transportado pelo caminhão é igual a " + teste;
+        }
+        
+    </script>
+</body>
+</html>

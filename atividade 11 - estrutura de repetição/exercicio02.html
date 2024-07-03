@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de um triangulo.</title>
+</head>
+<body>
+    <h1>Verificar lados do triângulo</h1>
+    <p>Utilize números inteiros para determinar as áreas do triângulo</p>
+
+    <button type="button" onclick="verificarTriangulo()">Começe a verificar</button>
+
+    <script>
+        function verificarTriangulo(){ 
+            let ladoA = parseInt(prompt("Qual é o valor do lado a do triângulo?")); //LADO A
+            console.log(ladoA);
+
+            let ladoB = parseInt(prompt("Qual é o valor do lado b do triângulo"));  //LADO B
+            console.log(ladoB);
+
+            let ladoC = parseInt(prompt("Qual é o valor do lado c do triângulo?")); //LADO C
+            console.log(ladoC);
+        
+            //VARIAVEIS DE SOMA DOS LADOS
+            var somaAB = ladoA + ladoB; //VERIFICA LADO C
+
+            var somaAC = ladoA + ladoC; //VERIFICA LADO B
+
+            var somaBC = ladoB + ladoC; //VERIFICA LADO A
+
+//VERIFICANDO OS LADOS
+            if ((ladoC > somaAB) || (ladoB > somaAC) || (ladoA > somaBC) ){
+                alert(`Um dos lados do seu triângulo é maior que a soma dos seus outros dois lados. Verifique os valores.`);
+//TRIANGULO EQUILÁTERO
+            } else 
+            if ((ladoA == ladoB) && (ladoA == ladoC) && (ladoB == ladoC)) {
+                alert(`Esse triângulo é EQUILÁTERO pois todos os seus lados são iguais.`);
+//TRIANGULO ISÓSCELES
+            } else 
+            if ((ladoA == ladoB) || (ladoA == ladoC) || (ladoC == ladoB)) {
+                alert(`Esse triângulo é ISÓSCELES pois tem o comprimento de dois lado iguais.`);
+            } else 
+            if ((ladoA != ladoB) && (ladoA != ladoC) && (ladoB != ladoC)) {
+                alert(`Esse triângilo é ESCALENO pois todos os seus lados têm tamanhos diferentes.`);
+            }
+    }
+    </script>
+</body>
+</html>

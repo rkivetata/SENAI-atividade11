@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação por pessoa</title>
+</head>
+<body>
+    <button type="button" onclick="classificacao()">Calcular classificação</button>
+
+    <script>
+        function classificacao() {
+            alert('Utilize ponto (.) ao invés de virgula (,) para que o sistema leia corretamente seus dados')
+            let altura = parseFloat(prompt("Qual é a sua altura?"));
+
+            let peso = parseFloat(prompt("Qual é o seu peso"));
+
+
+//ALTURA MENOR QUE 1.20
+            if ((altura < 1.20) && (peso <60)){
+                alert(`Sua classificação é A. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            } else 
+            if ((altura < 1.20) && ((peso >= 60) && (peso <=90))) {
+                alert(`Sua classificação é D. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+
+            } else 
+            if ((altura < 1.20) && (peso > 90)) {
+                alert(`Sua classificação é G. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            } else
+
+//ALTURA DE 1.20 ATÉ 1.70
+            if (((altura >= 1.20) && (altura <= 1.70)) && (peso < 60) ) {
+                alert(`Sua classificação é B. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            } else 
+            if (((altura >= 1.20) && (altura <= 1.70)) && ((peso >= 60) && (peso <=90)) ) {
+                alert(`Sua classificação é E. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            } else
+            if (((altura >= 1.20) && (altura <= 1.70)) && (peso > 90)) {
+                alert(`Sua classificação é H. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            } else
+//ALTURA MAIOR QUE 1.70
+            if ((altura > 1.70) && (peso <60)){
+                alert(`Sua classificação é C. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            } else
+            if ((altura > 1.70) && ((peso >= 60) && (peso <=90))){
+                alert(`Sua classificação é F. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            } else 
+            if ((altura > 1.70) && (peso > 90)) {
+                alert(`Sua classificação é I. Seu peso é ${peso}kg e sua altura é ${altura}cm`);
+            }
+
+        }
+    </script>
+</body>
+</html>
